@@ -1,0 +1,6 @@
+[1] score=0.6839 source=PROC-042-v2-frete-especial-revisado.md section=2.1. Multiplicadores regionais (atualizados em novembro/2023) priority=3
+[2] score=0.7808 source=PROC-042-frete-especial-v1.md section=2.1. Multiplicadores regionais priority=3
+[3] score=1.1708 source=PROC-042-v2-frete-especial-revisado.md section=1. Objetivo priority=3
+[4] score=1.2550 source=PROC-042-frete-especial-v1.md section=2. Fórmula de cálculo priority=3
+[5] score=1.2676 source=PROC-042-v2-frete-especial-revisado.md section=2. Fórmula de cálculo priority=3
+[6] score=1.0632 source=FAQ-atendimento.md section=Item 8 — "Como funciona o frete especial?" priority=6

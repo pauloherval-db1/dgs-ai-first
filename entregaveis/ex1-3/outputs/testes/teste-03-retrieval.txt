@@ -1,0 +1,6 @@
+[1] score=1.1209 source=SLA-2024-tabela-sla-clientes.md section=5. Medição e reportes priority=2
+[2] score=1.1626 source=SLA-2024-tabela-sla-clientes.md section=root priority=2
+[3] score=1.2376 source=SLA-2024-tabela-sla-clientes.md section=4. Penalidades por descumprimento priority=2
+[4] score=1.3487 source=SLA-2024-tabela-sla-clientes.md section=1. Classificação de clientes priority=2
+[5] score=1.3908 source=POL-001-politica-devolucao.md section=2. Escopo priority=2
+[6] score=1.3951 source=POL-001-politica-devolucao.md section=3.3. Procedimento de devolução priority=2
