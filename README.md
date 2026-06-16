@@ -72,34 +72,55 @@ Validação da pipeline com 5 cenários de teste com resultados em `entregaveis/
 
 ---
 
-### 🔄 Cenário 2 — [Nome a Definir]
+### 🔄 Cenário 2 — Estruturação do Trabalho
 
-**Tópicos cobertos:**
-- [A definir]
+**Tópicos cobertos (até o momento):**
+- Configuração de MCP Servers locais e gratuitos
+- Mapeamento de necessidades do projeto para servers MCP
+- Aplicação de least privilege por escopo e permissões
+- Evidências de execução real (docs, corpus e git)
 
-**Exercícios:** Ex 2.1, Ex 2.2, Ex 2.3
+**Exercícios:** Ex 2.1 (concluído), Ex 2.2 e Ex 2.3 (pendentes)
 
-**Localização:** `/entregaveis/ex2-1/`, `/entregaveis/ex2-2/`, `/entregaveis/ex2-3/`
+**Localização:** `/entregaveis/ex2-1/`
 
-**Status:** ⏳ Planejado
+**Status:** 🔄 Em andamento
 
 #### 📋 Contexto do Projeto
-[A definir]
+Na fase de estruturação, o foco foi preparar o ambiente para trabalho AI First com acesso controlado a código, documentação de negócio, corpus de recuperação e histórico do repositório, sem uso de serviços pagos ou externos.
 
 #### 📦 O que foi desenvolvido
-[A definir]
+- `mcp.json` com os servers `filesystem-rw`, `filesystem-ro-docs`, `filesystem-ro-prompts`, `git`, `memory` e `everything`
+- Documento de mapeamento (`mapeamento-mcp-servers.md`) relacionando necessidade x server x escopo
+- Export da sessão (`session-export.md`) com prompts e respostas estruturados
+- Evidências visuais em capturas de tela da execução
 
 #### 🎯 Principais Decisões Técnicas
-[A definir]
+| Decisão | Justificativa |
+|---------|-------------|
+| Separar `filesystem-rw` e `filesystem-ro-*` | Reduz risco de escrita acidental em documentação/prompt |
+| Usar `git` server para histórico | Permite consulta de commits e diffs sem dependência externa |
+| Incluir `memory` server | Suporta persistência de decisões e linguagem ubíqua entre sessões |
+| Adotar `everything` para sandbox | Facilita aprendizado do protocolo MCP sem impactar artefatos reais |
 
 #### ⚠️ Desafios Identificados
-[A definir]
+1. Servidores de filesystem expõem tools de escrita por padrão, exigindo mitigação por escopo e permissões
+2. Necessidade de manter regras de uso de tools de git alinhadas ao AGENTS.md
+3. Garantir evidência objetiva de execução real para avaliação
 
 #### 🧪 Testes e Resultados
-[A definir]
+Validação registrada em `entregaveis/ex2-1/session-export.md`, cobrindo:
+- Leitura de documento em `docs/novatech/`
+- Recuperação de informação a partir do corpus em `data/retrieval-corpus/`
+- Consulta de histórico do repositório via `git log`
+
+Todos os critérios obrigatórios do Ex 2.1 foram marcados como atendidos no material de entrega.
 
 #### 🔑 Conhecimentos Consolidados
-[A definir]
+- Design de integração MCP para desenvolvimento AI First
+- Princípios de segurança (least privilege) aplicados ao contexto de agentes
+- Estruturação de evidências para avaliação técnica de exercícios práticos
+- Organização de entregáveis com rastreabilidade para ADRs e critérios do enunciado
 
 ---
 
