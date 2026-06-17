@@ -82,11 +82,11 @@ Validação da pipeline com 5 cenários de teste com resultados em `entregaveis/
 - Iteração código-testes com validação de build (Ex 2.2)
 - Revisão crítica de artefatos e identificação de melhorias (Ex 2.2)
 
-**Exercícios:** Ex 2.1 (✅ concluído), Ex 2.2 (✅ concluído), Ex 2.3 (⏳ pendente)
+**Exercícios:** Ex 2.1 (✅ concluído), Ex 2.2 (✅ concluído), Ex 2.3 (✅ concluído)
 
 **Localização:** `/entregaveis/ex2-1/`, `/entregaveis/ex2-2/`
 
-**Status:** 🔄 Em andamento
+**Status:** ✅ Concluído
 
 #### 📋 Contexto do Projeto
 Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI First com acesso controlado a código, documentação de negócio e corpus via MCP sem serviços externos; (2) implementar tarefas concretas de desenvolvimento do query endpoint com validação e iteração.
@@ -107,6 +107,15 @@ Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI 
 - Compilação e testes executados com sucesso (`npm run build`, `npm test`)
 - Refactoring: substituição de strings por `ZodIssueCode` (Turno 3) e extração de mensagens (Turno 5)
 
+**Ex 2.3 — Skills Foundation (governança de skills):**
+- `SKILL.md` — skill Foundation com contexto, regras prescritivas, exemplos concretos DO/DON'T e anti-padrões úteis
+- Ajuste iterativo da skill para reforçar `camelCase` em variáveis, funções e objetos em TypeScript
+- Revisão da regra assíncrona para equilibrar `async/await` e `then`, evitando uso excessivo de `await`
+- Reforço explícito para evitar erros genéricos e preferir `try/catch` e erros específicos quando possível
+- `mapeamento-skills.md` — mapeamento determinístico de triggers, skills obrigatórias, papéis e frequência de uso
+- `arvore-de-skills.md` — organização hierárquica das skills por camada e dependência
+- `session-export.md` — export da sessão com prompts, respostas e referência explícita ao uso do GitHub Copilot na criação da skill
+
 #### 🎯 Principais Decisões Técnicas
 | Decisão | Justificativa |
 |---------|-------------|
@@ -115,12 +124,15 @@ Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI 
 | Schema centralizado em `types.ts` | Reduz duplicação de regra de validação (`question` em um único lugar) |
 | Mensagens em map centralizado | Facilita manutenção e i18n futuro |
 | Testes unitários sem mocks de rede | Foco em comportamento local, isolado de dependências |
+| Skills prescritivas e machine-readable | Permitem que agentes sigam regras sem ambiguidade |
+| Regras de estilo e erros explícitas | Reduzem geração de código frágil ou genérico |
 
 #### ⚠️ Desafios Identificados
 1. **Ex 2.1:** Servidores de filesystem expõem tools de escrita por padrão, exigindo mitigação por escopo e permissões
 2. **Ex 2.2:** Duplicação de regra de validação entre schema de domínio e validador do endpoint (problema 1 da revisão crítica)
 3. **Ex 2.2:** Error handling genérico dificulta integração com handler HTTP (problema 2 da revisão crítica)
 4. **Ex 2.2:** Cobertura de testes não inclui `session_id` inválido nem múltiplos erros simultâneos (problema 3 da revisão crítica)
+5. **Ex 2.3:** Skills narrativas ou ambíguas precisam ser reescritas como instruções prescritivas para consumo por agentes
 
 #### 🧪 Testes e Resultados
 
@@ -133,12 +145,22 @@ Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI 
 - Iteração validada: Turno 3 (ZodIssueCode) e Turno 5 (messages.ts)
 - Revisão crítica: 3 problemas reais identificados e documentados em `entregaveis/ex2-2/revisao-participante-ex2-2.md`
 
+**Ex 2.3:**
+- `entregaveis/ex2-3/SKILL.md` criado e depois refinado com melhorias prescritivas solicitadas pelo usuário
+- `entregaveis/ex2-3/mapeamento-skills.md` documenta triggers e uso determinístico das skills no projeto
+- `entregaveis/ex2-3/arvore-de-skills.md` organiza a estrutura de skills Foundation/Domain/Artifact
+- `entregaveis/ex2-3/session-export.md` consolida a sessão e registra a criação da skill com suporte do Copilot
+- A skill final prioriza regras executáveis, exemplos reais e anti-padrões acionáveis
+
 #### 🔑 Conhecimentos Consolidados
 - Design de integração MCP para desenvolvimento AI First
 - Princípios de segurança (least privilege) em contexto de agentes
 - Desenvolvimento iterativo dirigido por testes em TypeScript
 - Identificação de problemas reais em código gerado (duplicação, error handling, cobertura)
 - Estruturação de entregáveis com rastreabilidade de critérios e ADRs
+- Escrita de skills prescritivas para agentes de IA
+- Organização de governança por triggers, dependências e frequência de uso
+- Refinamento de instruções para reduzir ambiguidade na geração assistida
 
 ---
 
