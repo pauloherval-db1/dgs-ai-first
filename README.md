@@ -74,53 +74,71 @@ Validação da pipeline com 5 cenários de teste com resultados em `entregaveis/
 
 ### 🔄 Cenário 2 — Estruturação do Trabalho
 
-**Tópicos cobertos (até o momento):**
-- Configuração de MCP Servers locais e gratuitos
-- Mapeamento de necessidades do projeto para servers MCP
-- Aplicação de least privilege por escopo e permissões
-- Evidências de execução real (docs, corpus e git)
+**Tópicos cobertos:**
+- Configuração de MCP Servers locais e gratuitos (Ex 2.1)
+- Mapeamento de necessidades do projeto para servers MCP (Ex 2.1)
+- Aplicação de least privilege por escopo e permissões (Ex 2.1)
+- Desenvolvimento de query endpoint com TypeScript + Zod (Ex 2.2)
+- Iteração código-testes com validação de build (Ex 2.2)
+- Revisão crítica de artefatos e identificação de melhorias (Ex 2.2)
 
-**Exercícios:** Ex 2.1 (concluído), Ex 2.2 e Ex 2.3 (pendentes)
+**Exercícios:** Ex 2.1 (✅ concluído), Ex 2.2 (✅ concluído), Ex 2.3 (⏳ pendente)
 
-**Localização:** `/entregaveis/ex2-1/`
+**Localização:** `/entregaveis/ex2-1/`, `/entregaveis/ex2-2/`
 
 **Status:** 🔄 Em andamento
 
 #### 📋 Contexto do Projeto
-Na fase de estruturação, o foco foi preparar o ambiente para trabalho AI First com acesso controlado a código, documentação de negócio, corpus de recuperação e histórico do repositório, sem uso de serviços pagos ou externos.
+Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI First com acesso controlado a código, documentação de negócio e corpus via MCP sem serviços externos; (2) implementar tarefas concretas de desenvolvimento do query endpoint com validação e iteração.
 
 #### 📦 O que foi desenvolvido
-- `mcp.json` com os servers `filesystem-rw`, `filesystem-ro-docs`, `filesystem-ro-prompts`, `git`, `memory` e `everything`
-- Documento de mapeamento (`mapeamento-mcp-servers.md`) relacionando necessidade x server x escopo
+
+**Ex 2.1 — MCP Servers:**
+- `mcp.json` com servers `filesystem-rw`, `filesystem-ro-docs`, `filesystem-ro-prompts`, `git`, `memory` e `everything`
+- Documento de mapeamento (`mapeamento-mcp-servers.md`) relacionando necessidade × server × escopo
 - Export da sessão (`session-export.md`) com prompts e respostas estruturados
-- Evidências visuais em capturas de tela da execução
+- Evidências visuais em capturas de tela
+
+**Ex 2.2 — Query Endpoint (desenvolvimento):**
+- `src/shared/types.ts` — tipos de domínio (`QueryRequest`, `QueryResponse`, `SearchChunk`, `SourceDocument`)
+- `src/shared/messages.ts` — centralização de mensagens de erro (refatoração iterativa)
+- `src/functions/query/validator.ts` — validação com Zod de requisições POST
+- `tests/unit/query/validator.test.ts` — 4 cenários de teste (campo ausente, vazio, limite, válido)
+- Compilação e testes executados com sucesso (`npm run build`, `npm test`)
+- Refactoring: substituição de strings por `ZodIssueCode` (Turno 3) e extração de mensagens (Turno 5)
 
 #### 🎯 Principais Decisões Técnicas
 | Decisão | Justificativa |
 |---------|-------------|
 | Separar `filesystem-rw` e `filesystem-ro-*` | Reduz risco de escrita acidental em documentação/prompt |
-| Usar `git` server para histórico | Permite consulta de commits e diffs sem dependência externa |
-| Incluir `memory` server | Suporta persistência de decisões e linguagem ubíqua entre sessões |
-| Adotar `everything` para sandbox | Facilita aprendizado do protocolo MCP sem impactar artefatos reais |
+| TypeScript strict + Zod para validação | Type safety e validação em tempo de execução |
+| Schema centralizado em `types.ts` | Reduz duplicação de regra de validação (`question` em um único lugar) |
+| Mensagens em map centralizado | Facilita manutenção e i18n futuro |
+| Testes unitários sem mocks de rede | Foco em comportamento local, isolado de dependências |
 
 #### ⚠️ Desafios Identificados
-1. Servidores de filesystem expõem tools de escrita por padrão, exigindo mitigação por escopo e permissões
-2. Necessidade de manter regras de uso de tools de git alinhadas ao AGENTS.md
-3. Garantir evidência objetiva de execução real para avaliação
+1. **Ex 2.1:** Servidores de filesystem expõem tools de escrita por padrão, exigindo mitigação por escopo e permissões
+2. **Ex 2.2:** Duplicação de regra de validação entre schema de domínio e validador do endpoint (problema 1 da revisão crítica)
+3. **Ex 2.2:** Error handling genérico dificulta integração com handler HTTP (problema 2 da revisão crítica)
+4. **Ex 2.2:** Cobertura de testes não inclui `session_id` inválido nem múltiplos erros simultâneos (problema 3 da revisão crítica)
 
 #### 🧪 Testes e Resultados
-Validação registrada em `entregaveis/ex2-1/session-export.md`, cobrindo:
-- Leitura de documento em `docs/novatech/`
-- Recuperação de informação a partir do corpus em `data/retrieval-corpus/`
-- Consulta de histórico do repositório via `git log`
 
-Todos os critérios obrigatórios do Ex 2.1 foram marcados como atendidos no material de entrega.
+**Ex 2.1:**
+- Validação em `entregaveis/ex2-1/session-export.md`: leitura de doc, recuperação de chunk, consulta git
+
+**Ex 2.2:**
+- Execução de `npm test -- tests/unit/query/validator.test.ts` com **4/4 testes passando**
+- Execução de `npm run build` com **0 erros de compilação**
+- Iteração validada: Turno 3 (ZodIssueCode) e Turno 5 (messages.ts)
+- Revisão crítica: 3 problemas reais identificados e documentados em `entregaveis/ex2-2/revisao-participante-ex2-2.md`
 
 #### 🔑 Conhecimentos Consolidados
 - Design de integração MCP para desenvolvimento AI First
-- Princípios de segurança (least privilege) aplicados ao contexto de agentes
-- Estruturação de evidências para avaliação técnica de exercícios práticos
-- Organização de entregáveis com rastreabilidade para ADRs e critérios do enunciado
+- Princípios de segurança (least privilege) em contexto de agentes
+- Desenvolvimento iterativo dirigido por testes em TypeScript
+- Identificação de problemas reais em código gerado (duplicação, error handling, cobertura)
+- Estruturação de entregáveis com rastreabilidade de critérios e ADRs
 
 ---
 
