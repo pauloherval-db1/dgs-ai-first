@@ -111,11 +111,11 @@ Validação da pipeline com 5 cenários de teste com resultados em `entregaveis/
 - Guardrails determinísticos
 - Code Review orientado a riscos
 
-**Exercícios:** Ex 3.1, Ex 3.2, Ex 3.3
+**Exercícios:** Ex 3.1, Ex 3.2
 
-**Localização:** `/entregaveis/ex3-1/`, `/entregaveis/ex3-2/`, `/entregaveis/ex3-3/`
+**Localização:** `/entregaveis/ex3-1/`, `/entregaveis/ex3-2/`
 
-**Status:** 🔄 Em andamento (Ex 3.1 concluído)
+**Status:** ✅ Concluído
 
 #### 📋 Contexto do Projeto
 No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente NovaTech por meio de validação determinística no pós-processamento da saída do modelo. O objetivo foi reduzir risco operacional quando o modelo produzir respostas fora do formato esperado ou sem as negativas obrigatórias para cenários críticos.
@@ -165,3 +165,53 @@ No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente No
 - Como transformar requisitos de segurança em guardrails determinísticos auditáveis.
 - Como usar Zod para enforce de contrato de saída em aplicações LLM.
 - Como conduzir code review focado em risco real (dead code, cobertura insuficiente e clareza de responsabilidade).
+
+#### 📋 Contexto do Projeto (Ex 3.2)
+No Ex 3.2, o foco foi revisar criticamente código gerado por IA para um handler de feedback, comparar revisão humana com revisão por Claude e consolidar uma reescrita aderente às convenções do projeto (AGENTS.md), com ênfase em segurança, tipagem, validação e confiabilidade operacional.
+
+#### 📦 O que foi desenvolvido (Ex 3.2)
+- Revisão humana inicial com identificação de violações e riscos no código original gerado por IA.
+- Revisão por Claude com classificação de severidade e indicação explícita de bloqueadores de merge.
+- Comparativo consolidado humano vs Claude, destacando convergência e gaps entre revisões.
+- Reescrita completa do `handler.ts` com correções aplicadas a partir dos reviews.
+- Export da sessão de trabalho com prompts, respostas e decisões técnicas para rastreabilidade.
+
+#### 🎯 Principais Decisões Técnicas (Ex 3.2)
+| Decisão | Justificativa |
+|---------|---------------|
+| Validar payload com Zod (`safeParse`) | Remove aceitação silenciosa de input inválido e reforça contrato de entrada |
+| Eliminar `any` e usar `unknown` no body bruto | Mantém aderência ao TypeScript strict mode |
+| Substituir `console.log` por `pino` | Logging estruturado e aderente ao padrão do projeto |
+| Evitar log de PII (`attendantEmail`) | Reduz risco de exposição de dados pessoais |
+| Remover `require` dinâmico e usar import estático | Compatibilidade com ESM (`type: module`) e prevenção de erro em runtime |
+| Instanciar `CosmosClient` em escopo de módulo | Evita overhead por recriação de cliente a cada requisição |
+| Padronizar respostas HTTP (400/500) em JSON | Torna o contrato da API previsível e auditável |
+
+#### ⚠️ Desafios Identificados (Ex 3.2)
+1. Diferença de profundidade entre revisões: humano encontrou pontos de contrato/tipagem que o Claude não destacou.
+2. Necessidade de separar achados de estilo dos bloqueadores reais de runtime e segurança.
+3. Conciliação entre padrões de projeto (AGENTS.md), estrutura de pastas e robustez do código final.
+
+#### 🧪 Testes e Resultados (Ex 3.2)
+- Handler final reescrito e validado no editor sem erros sintáticos no artefato entregue.
+- Correções cobrindo os bloqueadores principais dos reviews:
+	- ausência de validação
+	- `any` no parsing
+	- `console.log` com risco de PII
+	- `require` dinâmico em ambiente ESM
+	- falta de tratamento de erro
+- Contrato HTTP final com respostas determinísticas:
+	- `400` para JSON/payload inválido
+	- `500` para falhas de persistência
+
+#### 📁 Evidências e Entregáveis do Ex 3.2
+- `entregaveis/ex3-2/review-manual.md`
+- `entregaveis/ex3-2/review-claude.md`
+- `entregaveis/ex3-2/humano-vs-claude.md`
+- `entregaveis/ex3-2/handler.ts`
+- `entregaveis/ex3-2/sessao-copilot.md`
+
+#### 🔑 Conhecimentos Consolidados (Ex 3.2)
+- Revisão de IA é mais eficaz quando combinada com revisão humana e critérios de severidade.
+- Conformidade com padrões de projeto (tipagem, validação, logging e privacidade) deve ser verificada de forma explícita.
+- Rastreabilidade de decisões técnicas acelera auditoria e facilita aprovação de entrega.
