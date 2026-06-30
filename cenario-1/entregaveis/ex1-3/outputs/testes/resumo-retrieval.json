@@ -1,0 +1,72 @@
+[
+  {
+    "index": 1,
+    "question": "Qual o prazo de devolução?",
+    "retrieval": [
+      "[1] score=0.8086 source=POL-001-politica-devolucao.md section=3.1. Prazo geral priority=2",
+      "[2] score=1.0728 source=SLA-2024-tabela-sla-clientes.md section=5. Medição e reportes priority=2",
+      "[3] score=1.0731 source=POL-001-politica-devolucao.md section=root priority=2",
+      "[4] score=1.0789 source=POL-001-politica-devolucao.md section=3.5. Custos de devolução priority=2",
+      "[5] score=0.9073 source=PROC-042-v2-frete-especial-revisado.md section=3. Prazo de entrega para frete especial priority=3",
+      "[6] score=0.9502 source=PROC-042-frete-especial-v1.md section=3. Prazo de entrega para frete especial priority=3"
+    ],
+    "retrieval_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-01-retrieval.txt",
+    "prompt_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-01-prompt.txt"
+  },
+  {
+    "index": 2,
+    "question": "Posso devolver carga perigosa?",
+    "retrieval": [
+      "[1] score=1.1030 source=POL-001-politica-devolucao.md section=3.5. Custos de devolução priority=2",
+      "[2] score=1.1489 source=POL-001-politica-devolucao.md section=3.2. Exceções ao prazo geral priority=2",
+      "[3] score=1.0713 source=PROC-042-v2-frete-especial-revisado.md section=4. Condições especiais priority=3",
+      "[4] score=1.1406 source=PROC-042-frete-especial-v1.md section=4. Condições especiais priority=3",
+      "[5] score=0.9245 source=FAQ-atendimento.md section=Item 38 — \"Cliente quer saber a política para carga que chegou danificada.\" priority=6",
+      "[6] score=1.0095 source=FAQ-atendimento.md section=Item 3 — \"Cliente perguntou se pode devolver carga perigosa. O que respondo?\" priority=6"
+    ],
+    "retrieval_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-02-retrieval.txt",
+    "prompt_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-02-prompt.txt"
+  },
+  {
+    "index": 3,
+    "question": "Qual o SLA do cliente Gold?",
+    "retrieval": [
+      "[1] score=1.1209 source=SLA-2024-tabela-sla-clientes.md section=5. Medição e reportes priority=2",
+      "[2] score=1.1626 source=SLA-2024-tabela-sla-clientes.md section=root priority=2",
+      "[3] score=1.2376 source=SLA-2024-tabela-sla-clientes.md section=4. Penalidades por descumprimento priority=2",
+      "[4] score=1.3487 source=SLA-2024-tabela-sla-clientes.md section=1. Classificação de clientes priority=2",
+      "[5] score=1.3908 source=POL-001-politica-devolucao.md section=2. Escopo priority=2",
+      "[6] score=1.3951 source=POL-001-politica-devolucao.md section=3.3. Procedimento de devolução priority=2"
+    ],
+    "retrieval_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-03-retrieval.txt",
+    "prompt_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-03-prompt.txt"
+  },
+  {
+    "index": 4,
+    "question": "Qual o SLA do cliente Platinum?",
+    "retrieval": [
+      "[1] score=1.0393 source=SLA-2024-tabela-sla-clientes.md section=root priority=2",
+      "[2] score=1.2689 source=SLA-2024-tabela-sla-clientes.md section=1. Classificação de clientes priority=2",
+      "[3] score=1.2969 source=SLA-2024-tabela-sla-clientes.md section=5. Medição e reportes priority=2",
+      "[4] score=1.3036 source=POL-001-politica-devolucao.md section=2. Escopo priority=2",
+      "[5] score=1.2007 source=PROC-042-v2-frete-especial-revisado.md section=root priority=3",
+      "[6] score=1.2456 source=PROC-042-frete-especial-v1.md section=root priority=3"
+    ],
+    "retrieval_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-04-retrieval.txt",
+    "prompt_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-04-prompt.txt"
+  },
+  {
+    "index": 5,
+    "question": "Qual o multiplicador para o Sudeste?",
+    "retrieval": [
+      "[1] score=0.6839 source=PROC-042-v2-frete-especial-revisado.md section=2.1. Multiplicadores regionais (atualizados em novembro/2023) priority=3",
+      "[2] score=0.7808 source=PROC-042-frete-especial-v1.md section=2.1. Multiplicadores regionais priority=3",
+      "[3] score=1.1708 source=PROC-042-v2-frete-especial-revisado.md section=1. Objetivo priority=3",
+      "[4] score=1.2550 source=PROC-042-frete-especial-v1.md section=2. Fórmula de cálculo priority=3",
+      "[5] score=1.2676 source=PROC-042-v2-frete-especial-revisado.md section=2. Fórmula de cálculo priority=3",
+      "[6] score=1.0632 source=FAQ-atendimento.md section=Item 8 — \"Como funciona o frete especial?\" priority=6"
+    ],
+    "retrieval_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-05-retrieval.txt",
+    "prompt_path": "/home/paulo.herval@db1.com.br/dev/dgs-ai-first/entregaveis/ex1-3/outputs/testes/teste-05-prompt.txt"
+  }
+]

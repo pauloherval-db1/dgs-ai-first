@@ -1,0 +1,6 @@
+[1] score=0.8086 source=POL-001-politica-devolucao.md section=3.1. Prazo geral priority=2
+[2] score=1.0728 source=SLA-2024-tabela-sla-clientes.md section=5. Medição e reportes priority=2
+[3] score=1.0731 source=POL-001-politica-devolucao.md section=root priority=2
+[4] score=1.0789 source=POL-001-politica-devolucao.md section=3.5. Custos de devolução priority=2
+[5] score=0.9073 source=PROC-042-v2-frete-especial-revisado.md section=3. Prazo de entrega para frete especial priority=3
+[6] score=0.9502 source=PROC-042-frete-especial-v1.md section=3. Prazo de entrega para frete especial priority=3

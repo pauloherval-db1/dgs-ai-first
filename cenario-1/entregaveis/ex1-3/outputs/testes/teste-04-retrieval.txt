@@ -1,0 +1,6 @@
+[1] score=1.0393 source=SLA-2024-tabela-sla-clientes.md section=root priority=2
+[2] score=1.2689 source=SLA-2024-tabela-sla-clientes.md section=1. Classificação de clientes priority=2
+[3] score=1.2969 source=SLA-2024-tabela-sla-clientes.md section=5. Medição e reportes priority=2
+[4] score=1.3036 source=POL-001-politica-devolucao.md section=2. Escopo priority=2
+[5] score=1.2007 source=PROC-042-v2-frete-especial-revisado.md section=root priority=3
+[6] score=1.2456 source=PROC-042-frete-especial-v1.md section=root priority=3

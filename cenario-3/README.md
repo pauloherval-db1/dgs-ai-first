@@ -2,14 +2,6 @@
 
 Repositório para armazenar os arquivos desenvolvidos durante a execução da trilha de certificação AI First da DB1.
 
-Este repositório consolida os três cenários da trilha em subdiretórios independentes:
-
-| Diretório | Cenário |
-|-----------|---------|
-| [`/cenario-1`](./cenario-1) | Cenário 1 — Entendimento e Contexto |
-| [`/cenario-2`](./cenario-2) | Cenário 2 — Estruturação do Trabalho |
-| [`/cenario-3`](./cenario-3) | Cenário 3 — Governança e Qualidade de Respostas |
-
 ---
 
 ## 📚 Cenários de Aprendizado
@@ -24,7 +16,7 @@ Este repositório consolida os três cenários da trilha em subdiretórios indep
 
 **Exercícios:** Ex 1.1 (Análise de Viabilidade), Ex 1.2 (Engenharia de Prompts), Ex 1.3 (Implementação RAG)
 
-**Localização:** [`/cenario-1/entregaveis/ex1-1/`](./cenario-1/entregaveis/ex1-1/), [`/cenario-1/entregaveis/ex1-2/`](./cenario-1/entregaveis/ex1-2/), [`/cenario-1/entregaveis/ex1-3/`](./cenario-1/entregaveis/ex1-3/)
+**Localização:** `/entregaveis/ex1-1/`, `/entregaveis/ex1-2/`, `/entregaveis/ex1-3/`
 
 **Status:** ✅ Concluído
 
@@ -69,7 +61,7 @@ A NovaTech enfrenta gargalo operacional — equipes de atendimento gastam ~12 mi
 5. Links Confluence não resolvidos: Páginas referenciadas não são trazidas automaticamente
 
 #### 🧪 Testes e Resultados
-Validação da pipeline com 5 cenários de teste com resultados em `cenario-1/entregaveis/ex1-3/outputs/testes/` demonstrando retrieval e prompts esperados.
+Validação da pipeline com 5 cenários de teste com resultados em `entregaveis/ex1-3/outputs/testes/` demonstrando retrieval e prompts esperados.
 
 #### 🔑 Conhecimentos Consolidados
 - Fundamentos de IA Generativa e RAG
@@ -80,98 +72,38 @@ Validação da pipeline com 5 cenários de teste com resultados em `cenario-1/en
 
 ---
 
-### ✅ Cenário 2 — Estruturação do Trabalho
+### 🔄 Cenário 2 — [Nome a Definir]
 
 **Tópicos cobertos:**
-- Configuração de MCP Servers locais e gratuitos (Ex 2.1)
-- Mapeamento de necessidades do projeto para servers MCP (Ex 2.1)
-- Aplicação de least privilege por escopo e permissões (Ex 2.1)
-- Desenvolvimento de query endpoint com TypeScript + Zod (Ex 2.2)
-- Iteração código-testes com validação de build (Ex 2.2)
-- Revisão crítica de artefatos e identificação de melhorias (Ex 2.2)
+- [A definir]
 
-**Exercícios:** Ex 2.1 (✅ concluído), Ex 2.2 (✅ concluído), Ex 2.3 (✅ concluído)
+**Exercícios:** Ex 2.1, Ex 2.2, Ex 2.3
 
-**Localização:** [`/cenario-2/entregaveis/ex2-1/`](./cenario-2/entregaveis/ex2-1/), [`/cenario-2/entregaveis/ex2-2/`](./cenario-2/entregaveis/ex2-2/), [`/cenario-2/entregaveis/ex2-3/`](./cenario-2/entregaveis/ex2-3/)
+**Localização:** `/entregaveis/ex2-1/`, `/entregaveis/ex2-2/`, `/entregaveis/ex2-3/`
 
-**Status:** ✅ Concluído
+**Status:** ⏳ Planejado
 
 #### 📋 Contexto do Projeto
-Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI First com acesso controlado a código, documentação de negócio e corpus via MCP sem serviços externos; (2) implementar tarefas concretas de desenvolvimento do query endpoint com validação e iteração.
+[A definir]
 
 #### 📦 O que foi desenvolvido
-
-**Ex 2.1 — MCP Servers:**
-- `mcp.json` com servers `filesystem-rw`, `filesystem-ro-docs`, `filesystem-ro-prompts`, `git`, `memory` e `everything`
-- Documento de mapeamento (`mapeamento-mcp-servers.md`) relacionando necessidade × server × escopo
-- Export da sessão (`session-export.md`) com prompts e respostas estruturados
-- Evidências visuais em capturas de tela
-
-**Ex 2.2 — Query Endpoint (desenvolvimento):**
-- `src/shared/types.ts` — tipos de domínio (`QueryRequest`, `QueryResponse`, `SearchChunk`, `SourceDocument`)
-- `src/shared/messages.ts` — centralização de mensagens de erro (refatoração iterativa)
-- `src/functions/query/validator.ts` — validação com Zod de requisições POST
-- `tests/unit/query/validator.test.ts` — 4 cenários de teste (campo ausente, vazio, limite, válido)
-- Compilação e testes executados com sucesso (`npm run build`, `npm test`)
-- Refactoring: substituição de strings por `ZodIssueCode` (Turno 3) e extração de mensagens (Turno 5)
-
-**Ex 2.3 — Skills Foundation (governança de skills):**
-- `SKILL.md` — skill Foundation com contexto, regras prescritivas, exemplos concretos DO/DON'T e anti-padrões úteis
-- Ajuste iterativo da skill para reforçar `camelCase` em variáveis, funções e objetos em TypeScript
-- Revisão da regra assíncrona para equilibrar `async/await` e `then`, evitando uso excessivo de `await`
-- Reforço explícito para evitar erros genéricos e preferir `try/catch` e erros específicos quando possível
-- `mapeamento-skills.md` — mapeamento determinístico de triggers, skills obrigatórias, papéis e frequência de uso
-- `arvore-de-skills.md` — organização hierárquica das skills por camada e dependência
-- `session-export.md` — export da sessão com prompts, respostas e referência explícita ao uso do GitHub Copilot na criação da skill
+[A definir]
 
 #### 🎯 Principais Decisões Técnicas
-| Decisão | Justificativa |
-|---------|-------------|
-| Separar `filesystem-rw` e `filesystem-ro-*` | Reduz risco de escrita acidental em documentação/prompt |
-| TypeScript strict + Zod para validação | Type safety e validação em tempo de execução |
-| Schema centralizado em `types.ts` | Reduz duplicação de regra de validação (`question` em um único lugar) |
-| Mensagens em map centralizado | Facilita manutenção e i18n futuro |
-| Testes unitários sem mocks de rede | Foco em comportamento local, isolado de dependências |
-| Skills prescritivas e machine-readable | Permitem que agentes sigam regras sem ambiguidade |
-| Regras de estilo e erros explícitas | Reduzem geração de código frágil ou genérico |
+[A definir]
 
 #### ⚠️ Desafios Identificados
-1. **Ex 2.1:** Servidores de filesystem expõem tools de escrita por padrão, exigindo mitigação por escopo e permissões
-2. **Ex 2.2:** Duplicação de regra de validação entre schema de domínio e validador do endpoint (problema 1 da revisão crítica)
-3. **Ex 2.2:** Error handling genérico dificulta integração com handler HTTP (problema 2 da revisão crítica)
-4. **Ex 2.2:** Cobertura de testes não inclui `session_id` inválido nem múltiplos erros simultâneos (problema 3 da revisão crítica)
-5. **Ex 2.3:** Skills narrativas ou ambíguas precisam ser reescritas como instruções prescritivas para consumo por agentes
+[A definir]
 
 #### 🧪 Testes e Resultados
-
-**Ex 2.1:**
-- Validação em `cenario-2/entregaveis/ex2-1/session-export.md`: leitura de doc, recuperação de chunk, consulta git
-
-**Ex 2.2:**
-- Execução de `npm test -- tests/unit/query/validator.test.ts` com **4/4 testes passando**
-- Execução de `npm run build` com **0 erros de compilação**
-- Iteração validada: Turno 3 (ZodIssueCode) e Turno 5 (messages.ts)
-- Revisão crítica: 3 problemas reais identificados e documentados em `cenario-2/entregaveis/ex2-2/revisao-participante-ex2-2.md`
-
-**Ex 2.3:**
-- `cenario-2/entregaveis/ex2-3/SKILL.md` criado e depois refinado com melhorias prescritivas
-- `cenario-2/entregaveis/ex2-3/mapeamento-skills.md` documenta triggers e uso determinístico das skills no projeto
-- `cenario-2/entregaveis/ex2-3/arvore-de-skills.md` organiza a estrutura de skills Foundation/Domain/Artifact
-- `cenario-2/entregaveis/ex2-3/session-export.md` consolida a sessão e registra a criação da skill com suporte do Copilot
+[A definir]
 
 #### 🔑 Conhecimentos Consolidados
-- Design de integração MCP para desenvolvimento AI First
-- Princípios de segurança (least privilege) em contexto de agentes
-- Desenvolvimento iterativo dirigido por testes em TypeScript
-- Identificação de problemas reais em código gerado (duplicação, error handling, cobertura)
-- Estruturação de entregáveis com rastreabilidade de critérios e ADRs
-- Escrita de skills prescritivas para agentes de IA
-- Organização de governança por triggers, dependências e frequência de uso
-- Refinamento de instruções para reduzir ambiguidade na geração assistida
+[A definir]
 
 ---
 
-### ✅ Cenário 3 — Governança e Qualidade de Respostas
+### 🚧 Cenário 3 — Governança e Qualidade de Respostas
 
 **Tópicos cobertos:**
 - Harness Engineering
@@ -179,13 +111,13 @@ Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI 
 - Guardrails determinísticos
 - Code Review orientado a riscos
 
-**Exercícios:** Ex 3.1 (✅ concluído), Ex 3.2 (✅ concluído)
+**Exercícios:** Ex 3.1, Ex 3.2
 
-**Localização:** [`/cenario-3/entregaveis/ex3-1/`](./cenario-3/entregaveis/ex3-1/), [`/cenario-3/entregaveis/ex3-2/`](./cenario-3/entregaveis/ex3-2/)
+**Localização:** `/entregaveis/ex3-1/`, `/entregaveis/ex3-2/`
 
 **Status:** ✅ Concluído
 
-#### 📋 Contexto do Projeto (Ex 3.1)
+#### 📋 Contexto do Projeto
 No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente NovaTech por meio de validação determinística no pós-processamento da saída do modelo. O objetivo foi reduzir risco operacional quando o modelo produzir respostas fora do formato esperado ou sem as negativas obrigatórias para cenários críticos.
 
 #### 📦 O que foi desenvolvido (Ex 3.1)
@@ -201,7 +133,7 @@ No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente No
 	- Export completo de prompts e respostas
 	- Sessão de code review com problemas identificados e correções aplicadas
 
-#### 🎯 Principais Decisões Técnicas (Ex 3.1)
+#### 🎯 Principais Decisões Técnicas
 | Decisão | Justificativa |
 |---------|---------------|
 | `structuredOutputSchema` com `.strict()` | Rejeita campos extras e força contrato de saída controlado |
@@ -210,12 +142,12 @@ No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente No
 | Separação schema x validator | Melhora manutenção, testabilidade e clareza arquitetural |
 | Enriquecimento de motivos de rejeição | Aumenta observabilidade e suporte a auditoria |
 
-#### ⚠️ Desafios Identificados (Ex 3.1)
+#### ⚠️ Desafios Identificados
 1. Dead code inicial no guardrail de `source_document` devido à validação já coberta no schema.
 2. Cobertura limitada de regex no primeiro draft para detecção de carga perigosa e devolução.
 3. Necessidade de explicitar no código a distinção entre controle probabilístico (prompt) e controle determinístico (guardrails).
 
-#### 🧪 Testes e Resultados (Ex 3.1)
+#### 🧪 Testes e Resultados
 - Testes unitários do validador executados com sucesso para cenários de aceite/rejeição.
 - Build TypeScript validado sem regressões nos módulos alterados.
 - Critérios esperados do Ex 3.1 atendidos:
@@ -224,12 +156,12 @@ No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente No
 	- Fallback seguro consistente
 
 #### 📁 Evidências e Entregáveis do Ex 3.1
-- [`cenario-3/entregaveis/ex3-1/sessao-code-review.md`](./cenario-3/entregaveis/ex3-1/sessao-code-review.md)
-- [`cenario-3/entregaveis/ex3-1/export-sessao-prompts-respostas.md`](./cenario-3/entregaveis/ex3-1/export-sessao-prompts-respostas.md)
-- [`cenario-3/entregaveis/ex3-1/response-validator.ts`](./cenario-3/entregaveis/ex3-1/response-validator.ts)
-- [`cenario-3/entregaveis/ex3-1/structured-output.schema.ts`](./cenario-3/entregaveis/ex3-1/structured-output.schema.ts)
+- `entregaveis/ex3-1/sessao-code-review.md`
+- `entregaveis/ex3-1/export-sessao-prompts-respostas.md`
+- `entregaveis/ex3-1/response-validator.ts`
+- `entregaveis/ex3-1/structured-output.schema.ts`
 
-#### 🔑 Conhecimentos Consolidados (Ex 3.1)
+#### 🔑 Conhecimentos Consolidados
 - Como transformar requisitos de segurança em guardrails determinísticos auditáveis.
 - Como usar Zod para enforce de contrato de saída em aplicações LLM.
 - Como conduzir code review focado em risco real (dead code, cobertura insuficiente e clareza de responsabilidade).
@@ -273,11 +205,11 @@ No Ex 3.2, o foco foi revisar criticamente código gerado por IA para um handler
 	- `500` para falhas de persistência
 
 #### 📁 Evidências e Entregáveis do Ex 3.2
-- [`cenario-3/entregaveis/ex3-2/review-manual.md`](./cenario-3/entregaveis/ex3-2/review-manual.md)
-- [`cenario-3/entregaveis/ex3-2/review-claude.md`](./cenario-3/entregaveis/ex3-2/review-claude.md)
-- [`cenario-3/entregaveis/ex3-2/humano-vs-claude.md`](./cenario-3/entregaveis/ex3-2/humano-vs-claude.md)
-- [`cenario-3/entregaveis/ex3-2/handler.ts`](./cenario-3/entregaveis/ex3-2/handler.ts)
-- [`cenario-3/entregaveis/ex3-2/sessao-copilot.md`](./cenario-3/entregaveis/ex3-2/sessao-copilot.md)
+- `entregaveis/ex3-2/review-manual.md`
+- `entregaveis/ex3-2/review-claude.md`
+- `entregaveis/ex3-2/humano-vs-claude.md`
+- `entregaveis/ex3-2/handler.ts`
+- `entregaveis/ex3-2/sessao-copilot.md`
 
 #### 🔑 Conhecimentos Consolidados (Ex 3.2)
 - Revisão de IA é mais eficaz quando combinada com revisão humana e critérios de severidade.
