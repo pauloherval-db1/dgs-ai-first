@@ -6,9 +6,9 @@ Este repositório consolida os três cenários da trilha em subdiretórios indep
 
 | Diretório | Cenário |
 |-----------|---------|
-| [`/cenario-1`](./cenario-1) | Cenário 1 — Entendimento e Contexto |
-| [`/cenario-2`](./cenario-2) | Cenário 2 — Estruturação do Trabalho |
-| [`/cenario-3`](./cenario-3) | Cenário 3 — Governança e Qualidade de Respostas |
+| `/cenario-1` | Cenário 1 — Entendimento e Contexto |
+| `/cenario-2` | Cenário 2 — Estruturação do Trabalho |
+| `/cenario-3` | Cenário 3 — Governança e Qualidade de Respostas |
 
 ---
 
@@ -24,7 +24,7 @@ Este repositório consolida os três cenários da trilha em subdiretórios indep
 
 **Exercícios:** Ex 1.1 (Análise de Viabilidade), Ex 1.2 (Engenharia de Prompts), Ex 1.3 (Implementação RAG)
 
-**Localização:** [`/cenario-1/entregaveis/ex1-1/`](./cenario-1/entregaveis/ex1-1/), [`/cenario-1/entregaveis/ex1-2/`](./cenario-1/entregaveis/ex1-2/), [`/cenario-1/entregaveis/ex1-3/`](./cenario-1/entregaveis/ex1-3/)
+**Localização:** `/cenario-1/entregaveis/ex1-1/`, `/cenario-1/entregaveis/ex1-2/`, `/cenario-1/entregaveis/ex1-3/`
 
 **Status:** ✅ Concluído
 
@@ -92,7 +92,7 @@ Validação da pipeline com 5 cenários de teste com resultados em `cenario-1/en
 
 **Exercícios:** Ex 2.1 (✅ concluído), Ex 2.2 (✅ concluído), Ex 2.3 (✅ concluído)
 
-**Localização:** [`/cenario-2/entregaveis/ex2-1/`](./cenario-2/entregaveis/ex2-1/), [`/cenario-2/entregaveis/ex2-2/`](./cenario-2/entregaveis/ex2-2/), [`/cenario-2/entregaveis/ex2-3/`](./cenario-2/entregaveis/ex2-3/)
+**Localização:** `/cenario-2/entregaveis/ex2-1/`, `/cenario-2/entregaveis/ex2-2/`, `/cenario-2/entregaveis/ex2-3/`
 
 **Status:** ✅ Concluído
 
@@ -181,7 +181,7 @@ Na fase de estruturação, o foco foi: (1) preparar o ambiente para trabalho AI 
 
 **Exercícios:** Ex 3.1 (✅ concluído), Ex 3.2 (✅ concluído)
 
-**Localização:** [`/cenario-3/entregaveis/ex3-1/`](./cenario-3/entregaveis/ex3-1/), [`/cenario-3/entregaveis/ex3-2/`](./cenario-3/entregaveis/ex3-2/)
+**Localização:** `/cenario-3/entregaveis/ex3-1/`, `/cenario-3/entregaveis/ex3-2/`
 
 **Status:** ✅ Concluído
 
@@ -224,10 +224,10 @@ No Ex 3.1, o foco foi fortalecer a confiabilidade das respostas do assistente No
 	- Fallback seguro consistente
 
 #### 📁 Evidências e Entregáveis do Ex 3.1
-- [`cenario-3/entregaveis/ex3-1/sessao-code-review.md`](./cenario-3/entregaveis/ex3-1/sessao-code-review.md)
-- [`cenario-3/entregaveis/ex3-1/export-sessao-prompts-respostas.md`](./cenario-3/entregaveis/ex3-1/export-sessao-prompts-respostas.md)
-- [`cenario-3/entregaveis/ex3-1/response-validator.ts`](./cenario-3/entregaveis/ex3-1/response-validator.ts)
-- [`cenario-3/entregaveis/ex3-1/structured-output.schema.ts`](./cenario-3/entregaveis/ex3-1/structured-output.schema.ts)
+- `cenario-3/entregaveis/ex3-1/sessao-code-review.md`
+- `cenario-3/entregaveis/ex3-1/export-sessao-prompts-respostas.md`
+- `cenario-3/entregaveis/ex3-1/response-validator.ts`
+- `cenario-3/entregaveis/ex3-1/structured-output.schema.ts`
 
 #### 🔑 Conhecimentos Consolidados (Ex 3.1)
 - Como transformar requisitos de segurança em guardrails determinísticos auditáveis.
@@ -273,11 +273,11 @@ No Ex 3.2, o foco foi revisar criticamente código gerado por IA para um handler
 	- `500` para falhas de persistência
 
 #### 📁 Evidências e Entregáveis do Ex 3.2
-- [`cenario-3/entregaveis/ex3-2/review-manual.md`](./cenario-3/entregaveis/ex3-2/review-manual.md)
-- [`cenario-3/entregaveis/ex3-2/review-claude.md`](./cenario-3/entregaveis/ex3-2/review-claude.md)
-- [`cenario-3/entregaveis/ex3-2/humano-vs-claude.md`](./cenario-3/entregaveis/ex3-2/humano-vs-claude.md)
-- [`cenario-3/entregaveis/ex3-2/handler.ts`](./cenario-3/entregaveis/ex3-2/handler.ts)
-- [`cenario-3/entregaveis/ex3-2/sessao-copilot.md`](./cenario-3/entregaveis/ex3-2/sessao-copilot.md)
+- `cenario-3/entregaveis/ex3-2/review-manual.md`
+- `cenario-3/entregaveis/ex3-2/review-claude.md`
+- `cenario-3/entregaveis/ex3-2/humano-vs-claude.md`
+- `cenario-3/entregaveis/ex3-2/handler.ts`
+- `cenario-3/entregaveis/ex3-2/sessao-copilot.md`
 
 #### 🔑 Conhecimentos Consolidados (Ex 3.2)
 - Revisão de IA é mais eficaz quando combinada com revisão humana e critérios de severidade.
